@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta charset="utf-8">
+    <title>Cartoon Quest - Toon Adventure</title>
+</head>
+ 
+<body>
+
+<h1>Cartoon game by Anji Reddy</h1>
+
+<form>
+    <label for="secretToon">That's all folks </label>
+    <input type="password" id="secretToon" name="secretToon" value="Porky Pig"> <br><br>
+
+    <label for="guessToon">Guess the toon </label>
+    <input type="text" id="guessToon" name="guessToon" autofocus> <br><br>
+
+    <input type="button" onclick="checkToon()" value="Check the guess">
+</form>
+
+<p id="result">Darn: 0, Yahoo: 0</p>
+
+<script> 
+// Global variables to track correct and incorrect guesses
+var darn = 0;
+var yahoo = 0;
+
+function checkToon(){
+    console.log("Checking toon guess")
+    
+    // Get the secret toon value
+    var secret = document.getElementById("secretToon").value;
+    
+    // Get the guess value
+    var guess = document.getElementById("guessToon").value;
+    
+    // Compare the values
+    if (secret === guess) {
+        yahoo++;
+        alert("You got it");
+    } else {
+        darn++;
+        alert("Missed me");
+    }
+    
+    // Update the result display
+    var resultElement = document.getElementById("result");
+    resultElement.innerHTML = "Darn: " + darn + ", Yahoo: " + yahoo;
+}
+</script>
+
+</body>
+</html>
